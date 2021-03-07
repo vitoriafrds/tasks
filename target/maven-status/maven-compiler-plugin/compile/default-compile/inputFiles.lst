@@ -1,0 +1,10 @@
+C:\development\task-manager\src\main\java\br\com\task\service\impl\AtividadeServiceImpl.java
+C:\development\task-manager\src\main\java\br\com\task\App.java
+C:\development\task-manager\src\main\java\br\com\task\repository\AtividadeRepository.java
+C:\development\task-manager\src\main\java\br\com\task\repository\CategoriaRepository.java
+C:\development\task-manager\src\main\java\br\com\task\service\AtividadeService.java
+C:\development\task-manager\src\main\java\br\com\task\model\Categoria.java
+C:\development\task-manager\src\main\java\br\com\task\model\Atividade.java
+C:\development\task-manager\src\main\java\br\com\task\model\dto\TarefaDTO.java
+C:\development\task-manager\src\main\java\br\com\task\model\enumerator\StatusTarefa.java
+C:\development\task-manager\src\main\java\br\com\task\configuration\JpaConfiguration.java

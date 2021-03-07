@@ -1,0 +1,10 @@
+br\com\task\model\dto\TarefaDTO.class
+br\com\task\model\enumerator\StatusTarefa.class
+br\com\task\service\impl\AtividadeServiceImpl.class
+br\com\task\configuration\JpaConfiguration.class
+br\com\task\model\Atividade.class
+br\com\task\repository\AtividadeRepository.class
+br\com\task\App.class
+br\com\task\service\AtividadeService.class
+br\com\task\model\Categoria.class
+br\com\task\repository\CategoriaRepository.class
