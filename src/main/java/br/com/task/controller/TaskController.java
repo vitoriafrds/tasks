@@ -2,8 +2,7 @@ package br.com.task.controller;
 
 import br.com.task.model.dto.TarefaRequest;
 import br.com.task.model.dto.TarefaResponse;
-import br.com.task.service.impl.TarefaServiceImpl;
-import lombok.Getter;
+import br.com.task.service.impl.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,12 +13,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/tarefas")
-public class TarefaController {
+public class TaskController {
 
-    private TarefaServiceImpl service;
+    private TaskServiceImpl service;
 
     @Autowired
-    public TarefaController(TarefaServiceImpl service) {
+    public TaskController(TaskServiceImpl service) {
         this.service = service;
     }
 
@@ -37,11 +36,12 @@ public class TarefaController {
     @GetMapping
     public ResponseEntity<Page<TarefaResponse>> listar(
             @RequestParam String categoria,
+            @RequestParam String status,
             @RequestParam int page,
             @RequestParam int size) {
         Pageable pageable = PageRequest.of(page, size);
 
-        Page<TarefaResponse> tarefas = service.listarTarefas(categoria, pageable);
+        Page<TarefaResponse> tarefas = service.listarTarefas(categoria, status, pageable);
 
         if (tarefas.getContent().isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -53,6 +53,12 @@ public class TarefaController {
     @PutMapping("/{id}")
     public ResponseEntity<Void> concluir(@PathVariable String id) {
         service.concluirTarefa(id);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PutMapping("/{id}/implantacao")
+    public ResponseEntity<Void> preparar(@PathVariable String id) {
+        service.prepararTarefa(id);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

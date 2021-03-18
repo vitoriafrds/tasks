@@ -18,7 +18,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 @Table(name = "TAREFA")
-public class Tarefa {
+public class Task {
 
     @Id
     @Column(name = "ID_TAREFA", length = 70)
@@ -33,13 +33,16 @@ public class Tarefa {
     @Column(name = "STATUS")
     private String status;
 
+    @Column(name = "RLSE")
+    private String release;
+
     @Column(name = "DATA_INICIO")
     private LocalDate dataInicio;
 
     @Column(name = "DATA_CONCLUSAO")
     private LocalDate dataConclusao;
 
-    public static TarefaResponse convertToResponse(Tarefa tarefa) {
+    public static TarefaResponse convertToResponse(Task tarefa) {
         return new TarefaResponse(tarefa);
     }
 }

@@ -6,6 +6,7 @@ import lombok.Getter;
 public enum StatusTarefa {
 
     EM_ANDAMENTO("EM ANDAMENTO"),
+    AGUARDANDO_IMPLANTACAO("AGUARDANDO IMPLANTACAO"),
     CONCLUIDA("CONCLUIDA");
 
     private String descricao;
@@ -21,8 +22,10 @@ public enum StatusTarefa {
     public static StatusTarefa parse(String status) {
         if (StatusTarefa.CONCLUIDA.getDescricao().equals(status)) {
             return CONCLUIDA;
-        } else {
-            return EM_ANDAMENTO;
+          } else if (StatusTarefa.AGUARDANDO_IMPLANTACAO.getDescricao().equals(status)){
+            return AGUARDANDO_IMPLANTACAO;
+          } else {
+            return CONCLUIDA;
         }
     }
 }

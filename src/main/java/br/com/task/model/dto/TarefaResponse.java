@@ -1,6 +1,6 @@
 package br.com.task.model.dto;
 
-import br.com.task.model.Tarefa;
+import br.com.task.model.Task;
 import br.com.task.model.enumerator.StatusTarefa;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +22,7 @@ public class TarefaResponse {
     private LocalDate inicio;
     private LocalDate conclusao;
 
-    public TarefaResponse(Tarefa tarefa) {
+    public TarefaResponse(Task tarefa) {
         this.id = tarefa.getId();
         this.categoria = tarefa.getCategoria();
         this.descricao = tarefa.getDescricao();
