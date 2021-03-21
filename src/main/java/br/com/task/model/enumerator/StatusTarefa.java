@@ -15,16 +15,12 @@ public enum StatusTarefa {
         this.descricao = descricao;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
     public static StatusTarefa parse(String status) {
         if (StatusTarefa.CONCLUIDA.getDescricao().equals(status)) {
             return CONCLUIDA;
-          } else if (StatusTarefa.AGUARDANDO_IMPLANTACAO.getDescricao().equals(status)){
+        } else if (StatusTarefa.AGUARDANDO_IMPLANTACAO.getDescricao().equals(status)) {
             return AGUARDANDO_IMPLANTACAO;
-          } else {
+        } else {
             return CONCLUIDA;
         }
     }

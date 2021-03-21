@@ -2,7 +2,7 @@ package br.com.task.controller;
 
 import br.com.task.model.dto.TarefaRequest;
 import br.com.task.model.dto.TarefaResponse;
-import br.com.task.service.impl.TaskServiceImpl;
+import br.com.task.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/tarefas")
 public class TaskController {
 
-    private TaskServiceImpl service;
+    private TaskService service;
 
     @Autowired
-    public TaskController(TaskServiceImpl service) {
+    public TaskController(TaskService service) {
         this.service = service;
     }
 
@@ -35,8 +35,8 @@ public class TaskController {
 
     @GetMapping
     public ResponseEntity<Page<TarefaResponse>> listar(
-            @RequestParam String categoria,
-            @RequestParam String status,
+            @RequestParam(required = false) String categoria,
+            @RequestParam(required = false) String status,
             @RequestParam int page,
             @RequestParam int size) {
         Pageable pageable = PageRequest.of(page, size);

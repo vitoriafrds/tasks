@@ -10,6 +10,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TarefaRequest {
+    private String release;
     private String categoria;
     private String descricao;
 }
+    
